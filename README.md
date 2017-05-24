@@ -1,3 +1,21 @@
+                            Digest Authentication
+                           ========================
+
+Digest Authentication doesn't require sending the username and password across the wire in plaintext.
+The server gives the client a one-time use string (a nonce) that it combines with the username, realm, password and the URI request. The client runs all of those fields through an MD5 hashing method to produce a hash key.
+It sends this hash key to the server along with the username and the realm to attempt to authenticate.
+
+Below would be the  Digest Authentication flow :
+
+1.	Client makes request
+Note: The username and password is not required for making the call and so no security concerns. 
+It is just that hitting the endpoint without any credentials we get a nonce as part of the header response.
+2.	Client gets back a nonce from the server and a 401 authentication request
+3.	Client sends back the following response array (username, realm, generate_md5_key(nonce, username, realm, URI, password))
+4.	The server takes username and realm (plus it knows the URI the client is requesting) and it looks up the password for that username. Then it goes and does its own version of generate_md5_key(nonce, username, realm, URI, password)
+5.	It compares the output of generate_md5() that it got with the one the client sent, if they match the client sent the correct password. If they don't match the password sent was wrong.
+                           
+
 Running the example
 ===========================================
 
