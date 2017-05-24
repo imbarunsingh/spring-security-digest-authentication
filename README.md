@@ -11,11 +11,12 @@ You can download the example code from Github. I will be using Postman to run th
 
 4. You will get 401 unauthorized as response like below.
 
-
+![alt text](https://github.com/BarunKrSingh/spring-security-digest-authentication/master/Success.JPG)
 
 5. If you see the Headers from the response, you will see "WWW-Authenticate" header. Copy the value of nonce field and enter in the nonce textfield.
 
 6. Click on Send Button. Voila!!! You got the valid response.
 
+![alt text](https://github.com/BarunKrSingh/spring-security-digest-authentication/master/WWW-Authenticate.JPG)
 
 This is how we implement Digest Authentication with Spring Security. I hope you find this post informative and helpful.
